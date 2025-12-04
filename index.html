@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus Compare Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              bg: {
+                primary: '#191919',
+                secondary: '#202020',
+                elevated: '#2a2a2a',
+                hover: '#333333',
+              },
+              text: {
+                primary: '#FFFFFF',
+                secondary: '#EDEEEE',
+                muted: '#A7A39A',
+              },
+              brand: {
+                blue: '#407EC9',
+                blueHover: '#327DA9',
+                blueSec: '#1E73BE',
+              },
+              status: {
+                success: '#448361',
+                warning: '#D9730D',
+                error: '#D44E49',
+              },
+              border: {
+                DEFAULT: '#3a3a3a',
+                hover: '#4a4a4a',
+              }
+            },
+            fontFamily: {
+              display: ['"Red Hat Display"', 'sans-serif'],
+              body: ['"Inter"', 'sans-serif'],
+            },
+            boxShadow: {
+              'glow': '0 0 20px rgba(64, 126, 201, 0.15)',
+              'card': '0 4px 12px rgba(0,0,0,0.4)',
+              'elevated': '0 8px 24px rgba(0,0,0,0.5)',
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.5s ease-out forwards',
+              'bounce-slow': 'bounceSlow 2s infinite',
+              'slide-up': 'slideUp 0.3s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              bounceSlow: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(4px)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(100%)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #191919;
+        color: #FFFFFF;
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #202020;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3a3a3a;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4a4a4a;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
