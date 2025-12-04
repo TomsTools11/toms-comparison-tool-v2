@@ -75,13 +75,27 @@ function dashboardReducer(state: DashboardState, action: DashboardAction): Dashb
 // --- Component ---
 export const Dashboard: React.FC = () => {
   // Load initial state from local storage if available
-  const savedState = localStorage.getItem('nexus_dashboard_data');
-  const initializer = savedState ? JSON.parse(savedState) : initialState;
+  // FIX: Merge parsed state with initialState to ensure all keys (like selectedIds) exist
+  const initializer = useMemo(() => {
+    const savedState = localStorage.getItem('nexus_dashboard_data');
+    if (savedState) {
+      try {
+        const parsed = JSON.parse(savedState);
+        return { ...initialState, ...parsed };
+      } catch (e) {
+        console.error('Failed to parse state', e);
+        return initialState;
+      }
+    }
+    return initialState;
+  }, []);
   
   const [state, dispatch] = useReducer(dashboardReducer, initializer);
 
   // Persistence effect
   useEffect(() => {
+    // Only persist items to keep state clean, or persist everything if needed.
+    // Here we persist items as per original logic.
     localStorage.setItem('nexus_dashboard_data', JSON.stringify({ items: state.items }));
   }, [state.items]);
 
